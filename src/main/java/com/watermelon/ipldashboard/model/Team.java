@@ -1,9 +1,7 @@
 package com.watermelon.ipldashboard.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Team {
@@ -14,6 +12,11 @@ public class Team {
     private String teamName;
     private long totalMatches;
     private long totalWins;
+    @Transient
+    private List<Match> matches;
+
+    public Team() {
+    }
 
     public Team(String teamName, long totalMatches) {
         this.teamName = teamName;
@@ -52,6 +55,15 @@ public class Team {
         this.totalWins = totalWins;
     }
 
+
+    public List<Match> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(List<Match> matches) {
+        this.matches = matches;
+    }
+
     @Override
     public String toString() {
         return "Team{" +
@@ -60,4 +72,6 @@ public class Team {
                 ", totalWins=" + totalWins +
                 '}';
     }
+
+
 }
