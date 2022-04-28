@@ -50,9 +50,9 @@ export const TeamPage = () => {
             </div>
             {team.matches
                 .slice(1)
-                .map((match, id) =>
+                .map(match =>
                     <MatchSmallCard
-                        key={id}
+                        key={match.id}
                         match={match}
                         teamName={team.teamName}
                     />
